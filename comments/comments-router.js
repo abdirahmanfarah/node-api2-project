@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 router.get('/:id/comments', (req, res) => {
-  Hubs.findCommentById(req.params.id)
+  Comment.findCommentById(req.params.id)
     .then(hub => {
       res.status(200).json(hub);
     })
@@ -20,13 +20,13 @@ router.get('/:id/comments', (req, res) => {
 });
 
 router.post('/:id/comments', (req, res) => {
-  Hubs.insertComment(req.body)
+  Comment.insertComment(req.body)
     .then(hub => {
       res.status(201).json(hub)
     })
     .catch(error => {
       console.log(error);
-      res.status(500).json({ message: "Can't make post to comment"})
+      res.status(500).json({ message: "Can't make comment."})
     });
 });
 

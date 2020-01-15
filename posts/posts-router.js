@@ -86,16 +86,27 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.get('/:id/comments', (req, res) => {
-  Hubs.findCommentById(req.params.id)
-    .then(hub => {
-      res.status(200).json(hub);
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(500).json({ message: "Error retrieving the comment"})
-    });
-});
 
+// router.get('/:id/comments', (req, res) => {
+//   Hubs.findCommentById(req.params.id)
+//     .then(hub => {
+//       res.status(200).json(hub);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//       res.status(500).json({ message: "Error retrieving the comment"})
+//     });
+// });
+
+// router.post('/:id/comments', (req, res) => {
+//   Hubs.insertComment(req.body)
+//     .then(hub => {
+//       res.status(201).json(hub)
+//     })
+//     .catch(error => {
+//       console.log(error);
+//       res.status(500).json({ message: "Can't make comment."})
+//     });
+// });
 
 module.exports = router;
